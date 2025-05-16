@@ -1,0 +1,54 @@
+/* Conteneur global */
+mat-drawer-container {
+  height: 100vh;
+  background-color: #f5f7fa;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Style de la sidebar */
+mat-drawer {
+  width: 260px;
+  background: linear-gradient(135deg, #1f2937, #111827);
+  color: #ffffff;
+  border-right: 1px solid #2c3e50;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
+}
+
+/* Sidebar content */
+app-sidenav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0 1rem;
+}
+
+/* Header */
+app-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 0.5rem 1rem;
+}
+
+/* Zone principale (router outlet) */
+mat-drawer-content {
+  padding: 1.5rem;
+  background-color: #f9fafb;
+  height: 100vh;
+  overflow-y: auto;
+  transition: margin 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  mat-drawer {
+    width: 220px;
+  }
+
+  mat-drawer-content {
+    padding: 1rem;
+  }
+}

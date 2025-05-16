@@ -1,0 +1,123 @@
+/* Centrer le formulaire avec une mise en page plus moderne */
+.center-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Centrage vertical */
+    background-color: #f3f4f6; /* Fond léger pour l'ensemble de la page */
+  }
+  
+  form {
+    display: grid;
+    gap: 15px;
+    width: 100%;
+    max-width: 420px; /* Largeur max pour les grands écrans */
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* Animation pour le formulaire au focus */
+  form:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Style des champs du formulaire */
+  form div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  
+  input {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+  }
+  
+  input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  button {
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[disabled] {
+    background-color: #e0e0e0;
+    cursor: not-allowed;
+  }
+  
+  button:hover:not([disabled]) {
+    background-color: #0056b3;
+  }
+  
+  /* Style pour le tableau */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    color: #555;
+  }
+  
+  th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+  }
+  
+  tr:hover {
+    background-color: #f9f9f9;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #fafafa;
+  }
+  
+  hr {
+    margin-top: 40px;
+    margin-bottom: 30px;
+    border: 0;
+    border-top: 2px solid #e0e0e0;
+  }
+  
+  /* Ajout de responsive design */
+  @media (max-width: 768px) {
+    form {
+      width: 90%;
+      padding: 15px;
+    }
+  
+    input, button {
+      font-size: 14px;
+    }
+  
+    table {
+      font-size: 14px;
+    }
+  }
+  

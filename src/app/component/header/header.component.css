@@ -1,0 +1,68 @@
+/* Style général pour le mat-toolbar */
+mat-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #ffffff; /* Changé de #2c3e50 à blanc */
+  color: #1e293b; /* Texte sombre pour contraste */
+  padding: 0 16px;
+  border-bottom: 1px solid #f1f5f9; /* Ajout d'une bordure subtile */
+}
+
+/* Pour éviter que le contenu principal soit caché sous la barre */
+.toolbar-spacer {
+  height: 64px; /* hauteur par défaut de mat-toolbar */
+}
+
+/* Justification horizontale des éléments dans la toolbar-row */
+.justify {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Liste dans la barre */
+mat-toolbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  background-color: transparent; /* Fond transparent */
+}
+
+/* Image utilisateur */
+.user-image {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #f1f5f9; /* Changé de blanc à gris très clair */
+  border: 2px solid #e2e8f0; /* Ajout d'une bordure subtile */
+}
+
+/* Ajustements d'espacement (conservés sans changement) */
+.mr-1 {
+  margin-right: 8px;
+}
+
+.mr-2 {
+  margin-right: 16px;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.mt-2 {
+  margin-top: 8px;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.align-items-center {
+  align-items: center;
+}

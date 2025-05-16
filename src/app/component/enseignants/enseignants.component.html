@@ -1,0 +1,34 @@
+<app-add-enseignant></app-add-enseignant>
+<h3 class="mt-4">Liste des enseignants</h3>
+<table class="table table-bordered table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>ID</th>
+      <th>Prénom</th>
+      <th>Nom</th>
+      <th>Email</th>
+      <th>Date de naissance</th>
+      <th>Matière</th>
+      <th>Image</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let enseignant of enseignants">
+      <td>{{ enseignant.id }}</td>
+      <td>{{ enseignant.firstName }}</td>
+      <td>{{ enseignant.lastName }}</td>
+      <td>{{ enseignant.email }}</td>
+      <td>{{ enseignant.dateOfBirth }}</td>
+      <td>{{ enseignant.course }}</td>
+      <td>
+        <img *ngIf="enseignant.imageBase64" [src]="enseignant.imageBase64" class="list-image"
+             width="60" height="60" style="object-fit: cover; border-radius: 5px;">
+      </td>
+      <td>
+        <button class="btn btn-warning btn-sm" (click)="editEnseignant(enseignant)">Modifier</button>
+        <button (click)="deleteEnseignant(enseignant.id!)">Supprimer</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

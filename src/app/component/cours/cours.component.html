@@ -1,0 +1,20 @@
+<div class="container">
+  <h2>Gestion des Cours</h2>
+
+  <!-- Formulaire d'ajout -->
+  <div class="form">
+  <input [(ngModel)]="newCours.nom" placeholder="Nom du cours" />
+<input [(ngModel)]="newCours.classe" placeholder="Classe" />
+    <input type="file" accept="application/pdf" (change)="onFileSelected($event)">
+    <button (click)="ajouterCours()">Ajouter</button>
+  </div>
+
+  <!-- Liste des cours -->
+  <ul>
+    <li *ngFor="let cours of coursList$ | async">
+      <span><strong>Id:</strong> {{ cours.id }} - {{ cours.nom }} - {{ cours.classe }}</span>
+      <button *ngIf="cours.id" (click)="supprimerCours(cours.id)">Supprimer</button>
+      <a *ngIf="cours.pdf" [href]="getPdfUrl(cours.pdf)" target="_blank">Voir PDF</a>
+    </li>
+  </ul>
+</div>

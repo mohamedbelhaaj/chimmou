@@ -1,0 +1,50 @@
+<form [formGroup]="enseignantForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <h3>ajouter des enseignants</h3>
+      <label>Prénom</label>
+      <input type="text" class="form-control" formControlName="firstName">
+      <div *ngIf="isFieldInvalid('firstName')" class="text-danger">Prénom invalide</div>
+    </div>
+
+    <div class="form-group">
+      <label>Nom</label>
+      <input type="text" class="form-control" formControlName="lastName">
+      <div *ngIf="isFieldInvalid('lastName')" class="text-danger">Nom invalide</div>
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" class="form-control" formControlName="email">
+      <div *ngIf="isFieldInvalid('email')" class="text-danger">Email invalide</div>
+    </div>
+
+    <div class="form-group">
+      <label>Date de naissance</label>
+      <input type="date" class="form-control" formControlName="dateOfBirth">
+      <div *ngIf="isFieldInvalid('dateOfBirth')" class="text-danger">Date requise</div>
+    </div>
+
+    <div class="form-group">
+      <label>Matière</label>
+      <input type="text" class="form-control" formControlName="course">
+      <div *ngIf="isFieldInvalid('course')" class="text-danger">Matière requise</div>
+    </div>
+
+    <div class="form-group">
+      <label>Photo de l'enseignant</label>
+      <input type="file" class="form-control" (change)="onFileChange($event)" accept="image/*">
+    </div>
+
+    <div *ngIf="previewUrl" class="mt-2">
+      <img *ngIf="previewUrl" [src]="previewUrl" class="preview-image"
+           alt="Aperçu" width="150" height="150" style="object-fit: cover; border-radius: 8px;">
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">
+      {{ isEditMode ? 'Modifier' : 'Ajouter' }}
+    </button>
+    <button type="button" class="btn btn-secondary mt-2" (click)="resetForm()">Annuler</button>
+  </form>
+
+  <div *ngIf="successMessage" class="alert alert-success mt-3">{{ successMessage }}</div>
+  <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>

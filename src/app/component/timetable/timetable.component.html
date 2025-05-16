@@ -1,0 +1,57 @@
+<h2>Timetable</h2>
+
+<form (ngSubmit)="addSlot()" #form="ngForm">
+  <div>
+    <label>Day:</label>
+    <input [(ngModel)]="newSlot.day" name="day" placeholder="Day" required>
+  </div>
+
+  <div>
+    <label>Subject:</label>
+    <input [(ngModel)]="newSlot.subject" name="subject" placeholder="Subject" required>
+  </div>
+
+  <div>
+    <label>Start Time:</label>
+    <input [(ngModel)]="newSlot.startTime" name="startTime" type="time" required>
+  </div>
+
+  <div>
+    <label>End Time:</label>
+    <input [(ngModel)]="newSlot.endTime" name="endTime" type="time" required>
+  </div>
+
+  <div>
+    <label>Class:</label>
+    <input [(ngModel)]="newSlot.class" name="class" placeholder="Class" required>
+  </div>
+
+  <div>
+    <label>Teacher:</label>
+    <input [(ngModel)]="newSlot.teacher" name="teacher" placeholder="Teacher" required>
+  </div>
+
+  <button type="submit" [disabled]="form.invalid">Add</button>
+</form>
+
+<hr>
+
+<h3>Timetable Entries</h3>
+<table border="1" cellpadding="8">
+  <tr>
+    <th>Day</th>
+    <th>Subject</th>
+    <th>Time</th>
+    <th>Class</th>
+    <th>Teacher</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let slot of slots">
+    <td>{{ slot.day }}</td>
+    <td>{{ slot.subject }}</td>
+    <td>{{ slot.startTime }} - {{ slot.endTime }}</td>
+    <td>{{ slot.class }}</td>
+    <td>{{ slot.teacher }}</td>
+    <td><button (click)="deleteSlot(slot.id!)">Delete</button></td>
+  </tr>
+</table>

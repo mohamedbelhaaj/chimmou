@@ -1,0 +1,76 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <h2>{{ isLoginMode ? 'Connexion' : 'Inscription' }}</h2>
+    
+    <form *ngIf="isLoginMode" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email" placeholder="Votre email">
+        <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="error-message">
+          Veuillez entrer un email valide
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" formControlName="password" placeholder="Votre mot de passe">
+        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error-message">
+          Le mot de passe doit faire au moins 6 caractères
+        </div>
+      </div>
+      
+      <button type="submit" [disabled]="isLoading || loginForm.invalid" class="auth-button">
+        <span *ngIf="!isLoading">Se connecter</span>
+        <span *ngIf="isLoading">Connexion en cours...</span>
+      </button>
+      
+      <div class="auth-footer">
+        <button type="button" (click)="resetPassword()" class="text-button">Mot de passe oublié?</button>
+        <button type="button" (click)="switchMode()" class="text-button">
+          Créer un compte
+        </button>
+      </div>
+    </form>
+    
+    <form *ngIf="!isLoginMode" [formGroup]="signupForm" (ngSubmit)="onSignup()">
+      <div class="form-group">
+        <label for="signup-username">Nom d'utilisateur</label>
+        <input type="text" id="signup-username" formControlName="username" placeholder="Votre nom d'utilisateur">
+        <div *ngIf="signupForm.get('username')?.invalid && signupForm.get('username')?.touched" class="error-message">
+          Veuillez entrer un nom d'utilisateur
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="signup-email">Email</label>
+        <input type="email" id="signup-email" formControlName="email" placeholder="Votre email">
+        <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched" class="error-message">
+          Veuillez entrer un email valide
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="signup-password">Mot de passe</label>
+        <input type="password" id="signup-password" formControlName="password" placeholder="Votre mot de passe">
+        <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched" class="error-message">
+          Le mot de passe doit faire au moins 6 caractères
+        </div>
+      </div>
+      
+      <button type="submit" [disabled]="isLoading || signupForm.invalid" class="auth-button">
+        <span *ngIf="!isLoading">S'inscrire</span>
+        <span *ngIf="isLoading">Inscription en cours...</span>
+      </button>
+      
+      <div class="auth-footer">
+        <button type="button" (click)="switchMode()" class="text-button">
+          Déjà un compte? Se connecter
+        </button>
+      </div>
+    </form>
+    
+    <div *ngIf="message" class="message" [class.error]="message.includes('erreur')">
+      {{ message }}
+    </div>
+  </div>
+</div>

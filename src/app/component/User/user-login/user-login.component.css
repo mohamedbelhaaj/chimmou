@@ -1,0 +1,211 @@
+:root {
+  --primary-color: #007bff;
+  --primary-hover: #0056b3;
+  --error-color: #dc3545;
+  --text-color: #1f2937;
+  --light-gray: #f8f9fa;
+  --border-color: #ced4da;
+  --success-bg: #e6f9f0;
+  --success-text: #087f5b;
+  --transition: all 0.3s ease;
+  --radius: 0.5rem;
+}
+
+body {
+  background-color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-color);
+}
+
+/* Container */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--light-gray);
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(0, 123, 255, 0.05) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(0, 123, 255, 0.05) 0%, transparent 20%);
+  padding: 2rem;
+}
+
+/* Card */
+.auth-card {
+  width: 100%;
+  max-width: 28rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.auth-card:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.auth-card h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-top: 2rem;
+}
+
+/* Form */
+form {
+  padding: 0 2rem 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  background-color: #ffffff;
+  transition: var(--transition);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.15);
+  background-color: #ffffff;
+}
+
+/* Error message */
+.error-message {
+  color: var(--error-color);
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+/* Button */
+.auth-button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-button:hover {
+  background-color: var(--primary-hover);
+}
+
+.auth-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Footer */
+.auth-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  color: var(--text-color);
+}
+
+/* Link-style button */
+.text-button {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.text-button:hover {
+  text-decoration: underline;
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+/* Message Box */
+.message {
+  padding: 1rem;
+  margin: 1rem 2rem;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 0.4s forwards;
+}
+
+.message:not(.error) {
+  background-color: var(--success-bg);
+  color: var(--success-text);
+}
+
+.message.error {
+  background-color: #f8d7da;
+  color: var(--error-color);
+}
+
+/* Spinner */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.auth-button .loading-spinner {
+  display: flex;
+  align-items: center;
+}
+
+.auth-button .loading-spinner::before {
+  content: "";
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s linear infinite;
+  margin-right: 0.5rem;
+}
+
+/* Fade in animation for messages */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+  .auth-card {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  .auth-card h2 {
+    font-size: 1.5rem;
+  }
+}
